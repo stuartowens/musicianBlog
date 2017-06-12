@@ -11,6 +11,10 @@ app.get('/bundle.js', browserify('./client/index.js', {
   transform: [[require('babelify'), {presets: ['es2015', 'react'] } ] ]
 }))
 
+// app.get('/', function(req, res) {
+//   res.send('/index')
+// })
+
 app.use(express.static(path.join(__dirname, './client')));
 
 app.use('/style.css', function(req, res, next) {
