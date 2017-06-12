@@ -12,6 +12,9 @@ class App extends Component {
     // }
 this.onPost = this.onPost.bind(this);
 }
+  // componentDidMount() {
+  //
+  // }
   onPost(e) {
     e.preventDefault();
     console.log('posted', e.target)
