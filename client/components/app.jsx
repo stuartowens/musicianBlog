@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
+        posts: [],
         options: {
           title: 'trrr',
           author: '',
@@ -24,6 +25,7 @@ this.postPost = this.postPost.bind(this);
   componentDidMount() {
     fetch('http://localhost:4000/blogs')
       .then(res => res.json())
+      .then(value => this.setState({posts: value}))
   }
   onSubmit(e) {
     e.preventDefault();
@@ -35,6 +37,7 @@ this.postPost = this.postPost.bind(this);
       spotify: e.target.spotify.value,
       post: e.target.post.value
     }},() => ( this.postPost(this.state.options)) )
+
   }
   postPost(param) {
     fetch('/blogs', {
@@ -57,7 +60,7 @@ this.postPost = this.postPost.bind(this);
           <PostEntry onSubmit={this.onSubmit} />
         </div>
         </div>
-        <Board />
+        <Board posts={this.state.posts}/>
       </div>
     );
   }
