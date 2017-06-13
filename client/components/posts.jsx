@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 var Posts = (props) => {
-  console.log(props)
+  console.log(props.post.Spotify)
     return  <div className="Posts">
         <div className="image">
         <img src={props.post.Image} width="150px" height="150px"/>
@@ -17,8 +17,8 @@ var Posts = (props) => {
           {props.post.Post}
         </p>
       </div>
-      <div className="SoundCloud-url">
-      {props.post.Spotify}
+      <div className="Spotify-Player">
+      <iframe src={"https://open.spotify.com/embed/track/" + props.post.Spotify} width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
       </div>
       </div>
     };

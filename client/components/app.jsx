@@ -18,7 +18,7 @@ class App extends Component {
         trackId: '',
         posts: [],
         options: {
-          title: 'trrr',
+          title: '',
           author: '',
           image: '',
           spotify: '',
@@ -68,8 +68,9 @@ searchSongs(q) {
   s.searchTracks(q.target.value)
   .then((data) => {this.setState({tracks: data.tracks.items})});
 }
-onClick(e) {
-  console.log(e);
+onClick(id) {
+  console.log(id);
+  this.setState({trackId: id})
 }
 
   render() {
@@ -78,7 +79,7 @@ onClick(e) {
         <div className="App-header">
           <h2>Welcome to React Yal</h2>
         <div className="Post-entry">
-          <PostEntry onSubmit={this.onSubmit} />
+          <PostEntry onSubmit={this.onSubmit} trackId={this.state.trackId} />
         </div>
         </div>
         <div id="searchBar">
