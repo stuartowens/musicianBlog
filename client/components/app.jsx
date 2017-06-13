@@ -8,14 +8,7 @@ import Results from './results.jsx';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
 var s = new Spotify();
-s.setAccessToken('BQBYTlfOx13xDDJhjtzH4mBzJaz7S_zwlZbj-JixmukIYyi_2B4CzVsGzthbDPbBJFh_X6exNlWnrp-Q2y1xQX3NmqvrfPBFM2pG_sAibAHPKkOtLDJ2_np7waNoaQtRfs2Iu76CjNqciNiR5_-GjEY');
-s.searchTracks('Love')
-  .then(function(data) {
-    console.log('Search by "Love"', data);
-  }, function(err) {
-    console.error(err);
-  });
-// var spotifyApi = new SpotifyWebApi();
+s.setAccessToken('BQBcVqroR2JWP_IfBdVMxPKyw1VMyehEHJ-xUirUR4RaGxAam8Uc-LNo0NhJ-QTpY9hG85LQfKrcV_cNrkOQ72PpLrMUdvtBVkK_g4wLI3aoTzC9arFGQxYAi7XIMfA-qn4BWWoaIKnX4THlU36L_l0');
 
 class App extends Component {
   constructor(props) {
@@ -34,9 +27,11 @@ class App extends Component {
       }
 this.onSubmit = this.onSubmit.bind(this);
 this.postPost = this.postPost.bind(this);
+this.searchSongs = this.searchSongs.bind(this);
+
 }
   componentDidMount() {
-    this.searchSongs('Andy');
+    // this.searchSongs('Andy');
     fetch('http://localhost:4000/blogs')
       .then(res => res.json())
       .then(value => this.setState({posts: value}))
@@ -65,15 +60,11 @@ this.postPost = this.postPost.bind(this);
   }).then(function(res){ console.log(res) })
     .catch(function(res){ console.log(res) })
 }
-searchSongs(query) {
+searchSongs(q) {
   // query.preventDefault();
-  s.searchTracks(query)
-  .then(function(data) {
-    console.log('Search by "Andy"', data.tracks.items);
-    this.setState({})
-  }, function(err) {
-    console.error(err);
-  });
+      console.log(q.target.value, 'query')
+  s.searchTracks(q.target.value)
+  .then((data) => {this.setState({tracks: data.tracks.items})});
 }
 
   render() {
@@ -89,7 +80,7 @@ searchSongs(query) {
           <Search search={this.searchSongs}/>
         </div>
         <div id="searchResults">
-          <Results />
+          <Results tracks={this.state.tracks}/>
         </div>
         <Board posts={this.state.posts}/>
       </div>
