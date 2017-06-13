@@ -15,6 +15,7 @@ class App extends Component {
     super(props);
       this.state = {
         tracks: [],
+        trackId: '',
         posts: [],
         options: {
           title: 'trrr',
@@ -28,6 +29,7 @@ class App extends Component {
 this.onSubmit = this.onSubmit.bind(this);
 this.postPost = this.postPost.bind(this);
 this.searchSongs = this.searchSongs.bind(this);
+this.onClick = this.onClick.bind(this);
 
 }
   componentDidMount() {
@@ -66,6 +68,9 @@ searchSongs(q) {
   s.searchTracks(q.target.value)
   .then((data) => {this.setState({tracks: data.tracks.items})});
 }
+onClick(e) {
+  console.log(e);
+}
 
   render() {
     return (
@@ -80,7 +85,7 @@ searchSongs(q) {
           <Search search={this.searchSongs}/>
         </div>
         <div id="searchResults">
-          <Results tracks={this.state.tracks}/>
+          <Results tracks={this.state.tracks} click={this.onClick}/>
         </div>
         <Board posts={this.state.posts}/>
       </div>
