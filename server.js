@@ -4,6 +4,7 @@ var path = require('path');
 var morgan = require('morgan');
 var mysql = require('mysql');
 var Sequelize = require('sequelize');
+var bodyParser = require('body-parser');
 var orm = new Sequelize("Blog", "root", "", {
   dialect: 'mysql'
 });
@@ -51,6 +52,18 @@ app.get('/blogs', function(req, res) {
   .then(function(result) {
     res.json(result)
   })
+})
+app.use(bodyParser.json());
+app.post('/blogs', function(req, res) {
+  console.log(req.body)
+  var params = {
+    Title: req.body['title'],
+    Author: req.body['author'],
+    Image: req.body['image'],
+    Spotify: req.body['spotify'],
+    Post: req.body['post']
+  }
+  Posts.create(params).then(task => res.send(task))
 })
 
 app.listen(4000, function() {
