@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
+import request from 'request';
 import Board from './messageboard.jsx';
 import PostEntry from './post.jsx';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     // this.state = {
     //
     // }
 this.onPost = this.onPost.bind(this);
 }
-  // componentDidMount() {
-  //
-  // }
+  componentDidMount() {
+    fetch('http://localhost:4000/blogs')
+      .then(res => res.json())
+  }
   onPost(e) {
     e.preventDefault();
     console.log('posted', e.target)
