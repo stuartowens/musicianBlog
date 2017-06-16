@@ -8,7 +8,7 @@ var Board = (props) => {
     </div>
     {props.posts.map((post) => (
       <div className="Posts">
-        <Posts post={post}/>
+        <Posts post={post} onDelete={props.onDelete}/>
       </div>
     ))}
       </div>
