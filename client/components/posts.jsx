@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 var Posts = (props) => {
   console.log(props.post.Spotify)
-    return  <div className="Posts">
-        <div className="image">
+    return  <div className="Posts card">
+        <div className="image card-image">
         <img src={props.post.Image} width="300px" height="300px"/>
       </div>
       <div className="Post-title">
