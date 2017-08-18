@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 var Posts = (props) => {
   console.log(props.post.Spotify)
     return  <div className="Posts card">
-        <div className="image card-image">
+        <div className="image card-image-top">
         <img src={props.post.Image} width="300px" height="300px"/>
       </div>
-      <div className="Post-title">
+      <div className="Post-title card-header">
         <h2>{props.post.Title}</h2>
       </div>
-      <div className="Username">
+      <div className="Username card-body">
         <h3>{props.post.Author}</h3>
       </div>
       <div className="Post-body">
