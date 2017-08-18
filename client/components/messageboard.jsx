@@ -7,7 +7,7 @@ var Board = (props) => {
       <h2>Message Board</h2>
     </div>
     {props.posts.map((post) => (
-      <div className="Posts">
+      <div className="Posts card-group">
         <Posts post={post} onDelete={props.onDelete}/>
       </div>
     ))}
