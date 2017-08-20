@@ -14,3 +14,13 @@ img {
   justify-content: space-around;
   margin: 10px;
 }
+
+.Post-title {
+  text-align: center;
+}
+.Post-entry {
+  border: solid;
+  width: 700px;
+  height: auto;
+}
+]
