@@ -5,9 +5,9 @@ import React, { Component } from 'react';
 var Posts = (props) => {
   console.log(props.post.Spotify)
     return <div>
-        <div className="Posts card">
+        <div className="Post card">
         <div className="image card-img-top">
-        <img src={props.post.Image} width="300px" height="300px"/>
+        <img src={props.post.Image} />
       </div>
       <div className="card-body">
       <div className="Post-title card-header">

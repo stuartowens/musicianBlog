@@ -1,4 +1,16 @@
-Posts {
-  width: 200px;
+.Posts {
+  display: inline-flex;
+}
+img {
+  width: 485px;
+  height: 485px;
+  margin: 5px;
+}
+.Post {
+  width: 500px;
   height: auto;
+  border-style: solid;
+  border-width: medium;
+  justify-content: space-around;
+  margin: 10px;
 }
