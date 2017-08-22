@@ -1,18 +1,26 @@
+Body {
+  background-image: url("bg.jpg");
+  color: white;
+}
 .Posts {
   display: inline-flex;
 }
+input {
+  background-color: grey;
+}
 img {
   width: 485px;
-  height: 485px;
+  height: auto;
   margin: 5px;
 }
 .Post {
+  color: black;
   width: 500px;
   height: auto;
   border-style: solid;
   border-width: medium;
-  justify-content: space-around;
-  margin: 10px;
+  justify-content: center;
+  margin: 50px;
 }
 
 .Post-title {
@@ -21,6 +29,5 @@ img {
 .Post-entry {
   border: solid;
   width: 700px;
-  height: auto;
+  height: 100px;
 }
-]
